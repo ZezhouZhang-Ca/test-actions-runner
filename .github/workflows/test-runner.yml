@@ -1,0 +1,21 @@
+name: Test Runner
+
+on:
+  push:
+    branches: [main] # 或者你常用的分支
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a message
+        run: echo "Hello from GitHub-hosted runner!"
+      - name: Print runner environment
+        run: |
+          echo "Operating System: $(uname -s)"
+          echo "Architecture: $(uname -m)"
+          echo "Runner Image: $RUNNER_IMAGE"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner Name: $RUNNER_NAME"
+          echo "Runner Environment: $GITHUB_WORKSPACE"
